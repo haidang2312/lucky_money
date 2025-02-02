@@ -51,13 +51,23 @@ document.getElementById('envelope').addEventListener('click', function() {
             coin.style.animation = 'fall 1s forwards';
         }, i * 100); // Thời gian rơi khác nhau cho mỗi đồng xu
     }
-});
-document.addEventListener('contextmenu', function(event) {
-    event.preventDefault();
-});
 
-document.addEventListener('keydown', function(event) {
-    if (event.key === 'F12' || (event.ctrlKey && event.shiftKey && event.key === 'I')) {
-        event.preventDefault();
+    // Kiểm tra nếu giá trị là 100000, hiển thị modal
+    if (totalAmount === 100000) {
+        const modal = document.getElementById('congratulationsModal');
+        modal.style.display = 'block';
+
+        // Đóng modal khi nhấn vào dấu '×'
+        const closeBtn = document.querySelector('.close');
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        // Đóng modal khi click ngoài modal
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
     }
 });
