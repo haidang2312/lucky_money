@@ -1,0 +1,95 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+.container {
+    position: relative;
+}
+
+.red-envelope {
+    width: 200px;
+    height: 300px;
+    background-color: #e74c3c;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.1s;
+}
+
+.red-envelope:hover {
+    transform: scale(1.05);
+}
+
+.envelope-top {
+    width: 0;
+    height: 0;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 50px solid #e74c3c;
+    position: absolute;
+    top: -50px;
+    left: 0;
+}
+
+.envelope-body {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.envelope-bottom {
+    width: 100%;
+    height: 20px;
+    background-color: #c0392b;
+    position: absolute;
+    bottom: 0;
+}
+
+.coins {
+    position: absolute;
+    display: none; /* Ẩn đồng xu ban đầu */
+}
+
+.coin {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: gold;
+    border-radius: 50%;
+    animation: fall 1s forwards;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(200px);
+    }
+}
+
+.message {
+    margin-top: 20px;
+    font-size: 24px;
+    display: none;
+}
+
+.shake {
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0% { transform: translate(0); }
+    20% { transform: translate(-5px, -5px); }
+    40% { transform: translate(5px, -5px); }
+    60% { transform: translate(-5px, 5px); }
+    80% { transform: translate(5px, 5px); }
+    100% { transform: translate(0); }
+}
