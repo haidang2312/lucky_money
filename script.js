@@ -52,3 +52,12 @@ document.getElementById('envelope').addEventListener('click', function() {
         }, i * 100); // Thời gian rơi khác nhau cho mỗi đồng xu
     }
 });
+document.addEventListener('contextmenu', function(event) {
+    event.preventDefault();
+});
+
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'F12' || (event.ctrlKey && event.shiftKey && event.key === 'I')) {
+        event.preventDefault();
+    }
+});
